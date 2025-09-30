@@ -1,0 +1,109 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\Progect\\CubeExplosions\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7414FE2E-5EFC-0D09-A2EF-BE068A7EA234}|Assembly-CSharp.csproj|E:\\Progect\\CubeExplosions\\assets\\scripts\\cubeexploder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7414FE2E-5EFC-0D09-A2EF-BE068A7EA234}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cubeexploder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7414FE2E-5EFC-0D09-A2EF-BE068A7EA234}|Assembly-CSharp.csproj|E:\\Progect\\CubeExplosions\\assets\\scripts\\cubesplitter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7414FE2E-5EFC-0D09-A2EF-BE068A7EA234}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cubesplitter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7414FE2E-5EFC-0D09-A2EF-BE068A7EA234}|Assembly-CSharp.csproj|E:\\Progect\\CubeExplosions\\assets\\scripts\\cubeappearance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7414FE2E-5EFC-0D09-A2EF-BE068A7EA234}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cubeappearance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7414FE2E-5EFC-0D09-A2EF-BE068A7EA234}|Assembly-CSharp.csproj|e:\\progect\\cubeexplosions\\assets\\scripts\\cubefactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7414FE2E-5EFC-0D09-A2EF-BE068A7EA234}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cubefactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7414FE2E-5EFC-0D09-A2EF-BE068A7EA234}|Assembly-CSharp.csproj|e:\\progect\\cubeexplosions\\assets\\scripts\\cubeclickhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7414FE2E-5EFC-0D09-A2EF-BE068A7EA234}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cubeclickhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CubeClickHandler.cs",
+              "DocumentMoniker": "E:\\Progect\\CubeExplosions\\Assets\\Scripts\\CubeClickHandler.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\CubeClickHandler.cs",
+              "ToolTip": "E:\\Progect\\CubeExplosions\\Assets\\Scripts\\CubeClickHandler.cs",
+              "RelativeToolTip": "Assets\\Scripts\\CubeClickHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-30T20:24:24.913Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CubeFactory.cs",
+              "DocumentMoniker": "E:\\Progect\\CubeExplosions\\Assets\\Scripts\\CubeFactory.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\CubeFactory.cs",
+              "ToolTip": "E:\\Progect\\CubeExplosions\\Assets\\Scripts\\CubeFactory.cs",
+              "RelativeToolTip": "Assets\\Scripts\\CubeFactory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC4AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-30T18:52:25.665Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CubeAppearance.cs",
+              "DocumentMoniker": "E:\\Progect\\CubeExplosions\\Assets\\Scripts\\CubeAppearance.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\CubeAppearance.cs",
+              "ToolTip": "E:\\Progect\\CubeExplosions\\Assets\\Scripts\\CubeAppearance.cs",
+              "RelativeToolTip": "Assets\\Scripts\\CubeAppearance.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-30T20:18:08.876Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CubeSplitter.cs",
+              "DocumentMoniker": "E:\\Progect\\CubeExplosions\\Assets\\Scripts\\CubeSplitter.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\CubeSplitter.cs",
+              "ToolTip": "E:\\Progect\\CubeExplosions\\Assets\\Scripts\\CubeSplitter.cs",
+              "RelativeToolTip": "Assets\\Scripts\\CubeSplitter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-30T20:13:07.663Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CubeExploder.cs",
+              "DocumentMoniker": "E:\\Progect\\CubeExplosions\\Assets\\Scripts\\CubeExploder.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\CubeExploder.cs",
+              "ToolTip": "E:\\Progect\\CubeExplosions\\Assets\\Scripts\\CubeExploder.cs",
+              "RelativeToolTip": "Assets\\Scripts\\CubeExploder.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-30T20:19:53.447Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
