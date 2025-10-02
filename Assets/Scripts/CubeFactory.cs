@@ -1,22 +1,23 @@
-﻿using UnityEngine;
+using UnityEngine;
+using System.Collections.Generic;
 
 public class CubeFactory : MonoBehaviour
 {
-    [SerializeField] private GameObject cubePrefab;
-
+    [SerializeField] private DividableCube cubePrefab;
     [SerializeField] private int initialCubesCount = 5;
-    [SerializeField] private float minExplosionForce = 8f;
-    [SerializeField] private float maxExplosionForce = 15f;
 
-    void Start()
+    public event System.Action<DividableCube> OnCubeCreated;
+    public event System.Action<DividableCube> OnCubeDestroyed;
+
+    private List<DividableCube> activeCubes = new List<DividableCube>();
+
+    private void Start()
     {
         CreateInitialCubes();
     }
 
     private void CreateInitialCubes()
     {
-        if (cubePrefab == null) return;
-
         for (int i = 0; i < initialCubesCount; i++)
         {
             Vector3 randomPos = new Vector3(
@@ -29,33 +30,49 @@ public class CubeFactory : MonoBehaviour
         }
     }
 
-    public GameObject CreateCube(Vector3 position, Vector3 scale, Color color, float splitChance)
+    public DividableCube CreateCube(Vector3 position, Vector3 scale, Color color, float splitChance)
     {
-        if (cubePrefab == null) return null;
+        DividableCube cube = Instantiate(cubePrefab, position, Quaternion.identity);
+        cube.Init(color, scale, splitChance);
 
-        GameObject cube = Instantiate(cubePrefab, position, Quaternion.identity);
-
-        cube.GetComponent<CubeAppearance>()?.Initialize(color, scale);
-
-        CubeSplitter splitter = cube.GetComponent<CubeSplitter>();
-        if (splitter != null)
-        {
-            splitter.Initialize(splitChance, this);
-        }
-
-        CubeExploder exploder = cube.GetComponent<CubeExploder>();
-        if (exploder != null)
-        {
-            exploder.SetExplosionSettings(minExplosionForce, maxExplosionForce);
-        }
+        activeCubes.Add(cube);
+        OnCubeCreated?.Invoke(cube);
 
         return cube;
     }
 
-    public void SetInitialCubesCount(int count) => initialCubesCount = count;
-    public void SetExplosionForceRange(float min, float max)
+    public DividableCube[] SplitCube(DividableCube originalCube)
     {
-        minExplosionForce = min;
-        maxExplosionForce = max;
+        int newCubesCount = Random.Range(2, 7);
+
+        DividableCube[] newCubes = new DividableCube[newCubesCount];
+
+        for (int i = 0; i < newCubesCount; i++)
+        {
+            originalCube.GetSplitParameters(out Vector3 newScale, out Color newColor, out float newSplitChance);
+
+            Vector3 randomOffset = new Vector3(
+                Random.Range(-0.5f, 0.5f),
+                Random.Range(-0.2f, 0.5f),
+                Random.Range(-0.5f, 0.5f)
+            );
+
+            Vector3 newPosition = originalCube.transform.position + randomOffset;
+            newCubes[i] = CreateCube(newPosition, newScale, newColor, newSplitChance);
+        }
+
+        return newCubes;
     }
+
+    public void DestroyCube(DividableCube cube)
+    {
+        if (cube != null)
+        {
+            activeCubes.Remove(cube);
+            OnCubeDestroyed?.Invoke(cube);
+            Destroy(cube.gameObject);
+        }
+    }
+
+    public int GetActiveCubeCount() => activeCubes.Count;
 }
