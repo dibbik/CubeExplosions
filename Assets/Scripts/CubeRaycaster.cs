@@ -3,13 +3,14 @@ using System;
 
 public class CubeRaycaster : MonoBehaviour
 {
-    [SerializeField] private Camera mainCamera;
+    [SerializeField] private Camera _mainCamera;
 
-    public event Action<DividableCube> OnCubeClicked;
+    internal event Action<DividableCube> OnCubeClicked;
 
     private void Start()
     {
-        if (mainCamera == null) mainCamera = Camera.main;
+        if (_mainCamera == null)
+            _mainCamera = Camera.main;
     }
 
     private void Update()
@@ -22,9 +23,10 @@ public class CubeRaycaster : MonoBehaviour
 
     private void TryClickCube(Vector2 screenPosition)
     {
-        if (mainCamera == null) return;
+        if (_mainCamera == null)
+            return;
 
-        Ray ray = mainCamera.ScreenPointToRay(screenPosition);
+        Ray ray = _mainCamera.ScreenPointToRay(screenPosition);
 
         if (Physics.Raycast(ray, out RaycastHit hit) && hit.collider.TryGetComponent<DividableCube>(out DividableCube cube))
         {

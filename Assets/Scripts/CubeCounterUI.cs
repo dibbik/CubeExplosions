@@ -4,43 +4,45 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Text))]
 public class CubeCounterUI : MonoBehaviour
 {
-    private Text cubeCountText;
-    private CubeFactory factory;
+    [SerializeField] private CubeFactory _cubeFactory;
+
+    private Text _cubeCountText;
 
     private void Start()
     {
-        cubeCountText = GetComponent<Text>();
-        factory = FindObjectOfType<CubeFactory>();
+        _cubeCountText = GetComponent<Text>();
 
-        if (factory != null)
+        if (_cubeFactory == null)
         {
-            factory.OnCubeCreated += OnCubeCountChanged;
-            factory.OnCubeDestroyed += OnCubeCountChanged;
+            Debug.LogError("CubeFactory не назначен в CubeCounterUI! Назначьте через Inspector.", this);
+            return;
         }
 
+        _cubeFactory.OnCubeCreated += OnCubeCountChanged;
+        _cubeFactory.OnCubeDestroyed += OnCubeCountChanged;
         UpdateCounter();
     }
 
-    public void OnCubeCountChanged(DividableCube cube)
+    private void OnCubeCountChanged(DividableCube cube)
     {
         UpdateCounter();
     }
 
     private void UpdateCounter()
     {
-        if (cubeCountText != null && factory != null)
+        if (_cubeCountText != null && _cubeFactory != null)
         {
-            int count = factory.GetActiveCubeCount();
-            cubeCountText.text = $"Кубы: {count}";
+            int count = _cubeFactory.GetActiveCubeCount();
+            _cubeCountText.text = $"Кубы: {count}";
         }
     }
 
     private void OnDestroy()
     {
-        if (factory != null)
+        if (_cubeFactory != null)
         {
-            factory.OnCubeCreated -= OnCubeCountChanged;
-            factory.OnCubeDestroyed -= OnCubeCountChanged;
+            _cubeFactory.OnCubeCreated -= OnCubeCountChanged;
+            _cubeFactory.OnCubeDestroyed -= OnCubeCountChanged;
         }
     }
 }

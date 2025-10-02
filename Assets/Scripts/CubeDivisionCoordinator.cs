@@ -2,33 +2,39 @@ using UnityEngine;
 
 public class CubeDivisionCoordinator : MonoBehaviour
 {
-    [SerializeField] private CubeRaycaster cubeRaycaster;
-    [SerializeField] private CubeFactory cubeFactory;
-    [SerializeField] private CubePhysicsForcer physicsForcer;
+    [SerializeField] private CubeRaycaster _cubeRaycaster;
+    [SerializeField] private CubeFactory _cubeFactory;
+    [SerializeField] private CubePhysicsForcer _physicsForcer;
 
     private void Start()
     {
-        cubeRaycaster.OnCubeClicked += HandleCubeClick;
+        if (_cubeRaycaster == null || _cubeFactory == null || _physicsForcer == null)
+        {
+            Debug.LogError("¬се зависимости должны быть назначены в CubeDivisionCoordinator!", this);
+            return;
+        }
+
+        _cubeRaycaster.OnCubeClicked += HandleCubeClick;
     }
 
     private void HandleCubeClick(DividableCube clickedCube)
     {
-        if (Random.value <= clickedCube.SplitChance)
+        if (clickedCube.CanSplit())
         {
-            DividableCube[] newCubes = cubeFactory.SplitCube(clickedCube);
+            DividableCube[] newCubes = _cubeFactory.Split(clickedCube);
 
             if (newCubes != null && newCubes.Length > 0)
             {
-                physicsForcer.ApplyForcesToCubes(newCubes, clickedCube.transform.position);
+                _physicsForcer.ApplyForcesToCubes(newCubes, clickedCube.transform.position);
             }
         }
 
-        cubeFactory.DestroyCube(clickedCube);
+        _cubeFactory.Destroy(clickedCube);
     }
 
     private void OnDestroy()
     {
-        if (cubeRaycaster != null)
-            cubeRaycaster.OnCubeClicked -= HandleCubeClick;
+        if (_cubeRaycaster != null)
+            _cubeRaycaster.OnCubeClicked -= HandleCubeClick;
     }
 }

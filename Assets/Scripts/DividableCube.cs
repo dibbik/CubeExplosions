@@ -8,32 +8,53 @@ using UnityEngine;
 
 public class DividableCube : MonoBehaviour
 {
-    [SerializeField] private MeshRenderer meshRenderer;
+    [SerializeField] private MeshRenderer _meshRenderer;
 
-    private float splitChance;
-    private Vector3 scale;
-    private Color color;
+    private float _splitChance;
+    private Vector3 _scale;
+    private Color _color;
 
-    public float SplitChance => splitChance;
-    public Vector3 Scale => scale;
-    public Color CubeColor => color;
+    internal float SplitChance
+    {
+        get => _splitChance;
+        private set => _splitChance = value;
+    }
+
+    internal Vector3 Scale
+    {
+        get => _scale;
+        private set => _scale = value;
+    }
+
+    internal Color CubeColor
+    {
+        get => _color;
+        private set => _color = value;
+    }
+
+    private void Awake()
+    {
+        if (_meshRenderer == null)
+            _meshRenderer = GetComponent<MeshRenderer>();
+    }
 
     public void Init(Color cubeColor, Vector3 cubeScale, float cubeSplitChance)
     {
-        color = cubeColor;
-        scale = cubeScale;
-        splitChance = cubeSplitChance;
+        CubeColor = cubeColor;
+        Scale = cubeScale;
+        SplitChance = cubeSplitChance;
 
-        if (meshRenderer != null)
-            meshRenderer.material.color = color;
+        if (_meshRenderer != null)
+            _meshRenderer.material = new Material(_meshRenderer.material)
+            {
+                color = CubeColor
+            };
 
-        transform.localScale = scale;
+        transform.localScale = Scale;
     }
 
-    public void GetSplitParameters(out Vector3 newScale, out Color newColor, out float newSplitChance)
+    internal bool CanSplit()
     {
-        newScale = scale / 2f;
-        newColor = UnityEngine.Random.ColorHSV();
-        newSplitChance = splitChance / 2f;
+        return UnityEngine.Random.value <= SplitChance;
     }
 }

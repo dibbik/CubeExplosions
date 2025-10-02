@@ -3,10 +3,10 @@ using System;
 
 public class InputReader : MonoBehaviour
 {
-    public event Action<Vector2> OnMouseClicked;
-    public event Action<Vector2> OnMousePositionChanged;
+    private Vector3 _previousMousePosition;
 
-    private Vector3 previousMousePosition;
+    internal event Action<Vector2> OnMouseClicked;
+    internal event Action<Vector2> OnMousePositionChanged;
 
     private void Update()
     {
@@ -15,10 +15,10 @@ public class InputReader : MonoBehaviour
             OnMouseClicked?.Invoke(Input.mousePosition);
         }
 
-        if ((Vector3)Input.mousePosition != previousMousePosition)
+        if ((Vector3)Input.mousePosition != _previousMousePosition)
         {
             OnMousePositionChanged?.Invoke(Input.mousePosition);
-            previousMousePosition = Input.mousePosition;
+            _previousMousePosition = Input.mousePosition;
         }
     }
 }
